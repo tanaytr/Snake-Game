@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Nokia-Style Snake Game
 
 A Python implementation of the classic Nokia Snake game with modern features.
@@ -45,3 +46,6 @@ python snake_game.py
 - Game ends if the snake hits itself or the top/bottom walls
 - The snake can pass through the left and right walls (screen wrapping)
 - When score reaches 100, the game switches to black and white mode 
+=======
+# Snake-Game
+>>>>>>> 80267e90088c767f47702315bd750cb44621b6dc
