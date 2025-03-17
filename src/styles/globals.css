@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Press Start 2P', system-ui;
+  background: #1a1a1a;
+  color: white;
+  overflow: hidden;
+}
+
+.game-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.canvas-container {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  aspect-ratio: 1;
+  margin: 1rem auto;
+}
+
+canvas {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain;
+}
+
+.controls {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  gap: 10px;
+}
+
+.control-btn {
+  width: 60px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+  user-select: none;
+  touch-action: manipulation;
+}
+
+.control-row {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .controls {
+    display: grid;
+    grid-template-rows: repeat(2, auto);
+    gap: 10px;
+  }
+  
+  .game-container {
+    padding-bottom: 180px;
+  }
+} 
