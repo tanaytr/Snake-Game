@@ -125,6 +125,13 @@ export default function Home() {
     }
   };
 
+  // Add touch handler for starting the game
+  const handleCanvasTouch = () => {
+    if (gameState.showMenu || gameState.gameOver) {
+      startGame();
+    }
+  };
+
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -162,7 +169,8 @@ export default function Home() {
         ctx.textAlign = 'center';
         ctx.fillText('SNAKE GAME', dimensions.width/2, dimensions.height/2 - 40);
         ctx.font = '16px "Press Start 2P"';
-        ctx.fillText('Press SPACE to Start', dimensions.width/2, dimensions.height/2 + 20);
+        const startText = window.innerWidth < 768 ? 'Tap to Start' : 'Press SPACE to Start';
+        ctx.fillText(startText, dimensions.width/2, dimensions.height/2 + 20);
         return;
       }
 
@@ -204,7 +212,8 @@ export default function Home() {
         ctx.fillText('GAME OVER', dimensions.width/2, dimensions.height/2 - 20);
         ctx.font = '16px "Press Start 2P"';
         ctx.fillText(`Score: ${gameState.score}`, dimensions.width/2, dimensions.height/2 + 20);
-        ctx.fillText('Press SPACE to Restart', dimensions.width/2, dimensions.height/2 + 60);
+        const restartText = window.innerWidth < 768 ? 'Tap to Restart' : 'Press SPACE to Restart';
+        ctx.fillText(restartText, dimensions.width/2, dimensions.height/2 + 60);
       }
 
       if (gameState.paused) {
@@ -275,6 +284,7 @@ export default function Home() {
             ref={canvasRef}
             width={dimensions.width}
             height={dimensions.height}
+            onTouchStart={handleCanvasTouch}
           />
         </div>
 
